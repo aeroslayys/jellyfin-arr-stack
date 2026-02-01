@@ -1,22 +1,23 @@
 # Jellyfin-Arr-Stack
 
-A streamlined, portable Docker Compose stack for a complete home media server. This setup includes the full "Arr" suite for automation and Jellyfin for high-performance media streaming with hardware acceleration.
+A streamlined, portable Docker Compose stack for a complete home media server. This setup includes the full "Arr" suite for automation, qBittorrent for downloads, Tailscale for secure remote access, and Jellyfin for streaming.
 
 ## 🚀 Services Included
-* **Jellyfin**: Open-source media server for streaming to all your devices.
-* **Radarr**: Automated movie collection and management.
-* **Sonarr**: Automated TV series and Anime management.
-* **Prowlarr**: Centralized indexer management for trackers.
+* **Jellyfin**: Media server for streaming to all your devices.
+* **qBittorrent**: Lightweight BitTorrent client with Web UI.
+* **Tailscale**: Secure VPN to access your server from anywhere without port forwarding.
+* **Radarr/Sonarr**: Automated movie and TV series management.
+* **Prowlarr**: Indexer management for trackers.
 * **Bazarr**: Automated subtitle management.
 
 ## 🛠️ Key Features
-* **Portable Design**: Uses relative paths (`./`) so you can move your stack anywhere.
-* **HW Acceleration**: Pre-configured for Intel/AMD GPU transcoding via `/dev/dri`.
-* **Organized Workflow**: Shared download and media folders for seamless "Arr" integration.
+* **Portable**: Uses relative paths (`./`)—no hardcoded usernames.
+* **HW Acceleration**: Ready for Intel/AMD GPU transcoding via `/dev/dri`.
+* **Zero-Config Remote Access**: Powered by Tailscale.
 
 ## 📋 Prerequisites
-Before deploying, ensure you have **Docker** and **Docker Compose** installed on your host system.
-
+* Docker and Docker Compose installed.
+* **Tailscale**: You will need a Tailscale account to authenticate the container.
 ---
 
 ## 🚀 Getting Started
@@ -56,6 +57,7 @@ Jellyfin	8096	http://localhost:8096 \
 Radarr	7878	http://localhost:7878 \
 Sonarr	8989	http://localhost:8989 \
 Prowlarr 9696	http://localhost:9696 \ 
+qBittorrent	8080	http://localhost:8080 \
 Bazarr	6767	http://localhost:6767 
 
 Recommended Setup Order:
@@ -64,6 +66,8 @@ Prowlarr: Configure this first to add your indexers (trackers).
 Sync: Link Prowlarr to Radarr and Sonarr under Settings > Apps to sync indexers automatically.
 
 Jellyfin: Add your libraries. Your media will be located at /media/[Category] inside the container (e.g., /media/Movies).
+
+Important: The default login for qBittorrent is usually admin with the password adminadmin (check logs if this fails). Change this immediately in settings.
 
 🔒 Security
 This configuration is sanitized for public sharing:
