@@ -73,5 +73,3 @@ No API keys or passwords are included.
 
 Note: It is highly recommended to use a Reverse Proxy (like Nginx Proxy Manager) and a VPN if you intend to access these services outside of your home network.
 
-
-Would you like me to generate a `.gitignore` file as well to ensure your actual media and config files stay off GitHub?
