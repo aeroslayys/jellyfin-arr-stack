@@ -55,8 +55,8 @@ Service	Port	URL \
 Jellyfin	8096	http://localhost:8096 \
 Radarr	7878	http://localhost:7878 \
 Sonarr	8989	http://localhost:8989 \
-Prowlarr	9696	http://localhost:9696 \ 
-Bazarr	6767	http://localhost:6767 \
+Prowlarr 9696	http://localhost:9696 \ 
+Bazarr	6767	http://localhost:6767 
 
 Recommended Setup Order:
 Prowlarr: Configure this first to add your indexers (trackers).
